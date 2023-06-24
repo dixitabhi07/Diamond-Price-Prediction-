@@ -1,0 +1,18 @@
+from setuptools import find_packages,setup
+from typing import List
+def get_requirements(file_path:str)->List[str]:
+    requirements=[]
+    with open(file_path) as file_obj:
+        requirements=file_obj.readlines()
+        [req.replace("\n","") for req in requirements]
+    return requirements
+
+setup(
+  name='Diamond Price Prediction',
+  version='0.0.1',
+  author='Abhishek Dixit',
+   author_email='abhishek.dixitknp07@gmail.com',
+    install_requires=get_requirements('requirement.txt'),
+    packages=find_packages())
+
+
